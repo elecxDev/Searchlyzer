@@ -1,0 +1,36 @@
+#Mentions sites to improve
+import pandas as pd
+
+df = pd.read_excel('/content/dataset.xlsx')
+
+print(df.head())
+
+high_bounce_rate = df[df['Bounce Rate (%)'] > 50]
+low_session_duration = df[df['Avg Session Duration (min)'] < 3]
+
+print("\nHigh Bounce Rate Sites:")
+print(high_bounce_rate[['Site', 'Bounce Rate (%)', 'Avg Session Duration (min)']])
+
+print("\nLow Session Duration Sites:")
+print(low_session_duration[['Site', 'Avg Session Duration (min)', 'Bounce Rate (%)']])
+
+low_engagement = df[(df['Traffic (Monthly)'] > 1000000000) &
+                    (df['Bounce Rate (%)'] > 50) &
+                    (df['Avg Session Duration (min)'] < 3)]
+
+print("\nSites with High Traffic but Low Engagement:")
+print(low_engagement[['Site', 'Traffic (Monthly)', 'Bounce Rate (%)', 'Avg Session Duration (min)']])
+
+high_load_time = df[df['Page Load Time (sec)'] > 3]
+print("\nHigh Page Load Time Sites:")
+print(high_load_time[['Site', 'Page Load Time (sec)']])
+
+print("\nRecommendations:")
+for index, row in high_bounce_rate.iterrows():
+    print(f"- Improve content quality and user engagement on {row['Site']}")
+
+for index, row in low_engagement.iterrows():
+    print(f"- Consider redesigning or optimizing content on {row['Site']} to improve engagement")
+
+for index, row in high_load_time.iterrows():
+    print(f"- Optimize page load speed for {row['Site']}")

@@ -80,5 +80,4 @@ This project is open-source and available under the MIT License.
 For questions, feedback, or contributions, please contact the project maintainer through the GitHub repository.
 
 **For Companies:**  
-If your company is interested in implementing Searchlyzer for SEO optimization, feel free to reach out via email at **[elecdev.business@gmail.com]**.
-```
+If your company is interested in implementing Searchlyzer for SEO optimization, feel free to reach out via email at **elecdev.business@gmail.com**.
